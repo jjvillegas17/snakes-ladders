@@ -3,5 +3,8 @@
         "psr-4": {
         	"SnakesLadders\\": "src/" 
         }
+    },
+    "require": {
+        "phpunit/phpunit": "^8"
     }
 }
