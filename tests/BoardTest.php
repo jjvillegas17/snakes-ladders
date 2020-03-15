@@ -36,4 +36,13 @@ class BoardTest extends TestCase {
         $this->expectException(InvalidArgumentException::class);
         $board = new Board($row, $col);
     }
+
+    public function test_board_can_place_snakes()
+    {
+        $board = new Board(5,5);
+        $snakes = SpawnableObjectsFactory::create('snakes');
+        $board->tile($row, $col)->place($snakes);
+
+        $this->assertInstanceOf(Snake::class, $board->getTile($row, $col));
+    }
 }
