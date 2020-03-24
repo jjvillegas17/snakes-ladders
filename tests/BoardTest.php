@@ -5,17 +5,6 @@ use SnakesLadders\Board;
 
 
 class BoardTest extends TestCase {
-    public function test_board_creates_correct_2d_array()
-    {
-        $expected = array(
-            0 => array(0,0,0),
-            1 => array(0,0,0),
-            2 => array(0,0,0),
-        );
-        $board = new Board(3,3);
-        
-        $this->assertEquals($board->get(), $expected);
-    }
 
     public function negativeDimensions()
     {
@@ -37,12 +26,26 @@ class BoardTest extends TestCase {
         $board = new Board($row, $col);
     }
 
-    public function test_board_can_place_snakes()
+    public function test_board_creates_correct_number_of_rows()
     {
         $board = new Board(5,5);
-        $snakes = SpawnableObjectsFactory::create('snakes');
-        $board->tile($row, $col)->place($snakes);
+        
+        $this->assertCount(5, $board->get());
+    }
 
-        $this->assertInstanceOf(Snake::class, $board->getTile($row, $col));
+    public function test_board_creates_correct_number_of_cols()
+    {
+        $board = new Board(5,6);
+
+        foreach ($board->get() as $row) {
+            $this->assertCount(6,$row);
+        }
+    }
+
+    public function test_board_creates_a_tile_object()
+    {
+        $board = new Board(5,5);
+        
+        $this->assertContainsOnlyInstancesOf('\SnakesLadders\Tile', $board->get()[0]);
     }
 }
