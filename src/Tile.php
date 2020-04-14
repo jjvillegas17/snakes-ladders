@@ -13,8 +13,13 @@ class Tile {
         $this->col = $col;
     }
 
-    public function put($entity)
+    public function setEntity($entity)
     {
+        $this->entity = $entity;
+    }
 
+    public function getEntity()
+    {
+        return $this->entity;
     }
 }

@@ -2,7 +2,9 @@
 
 use PHPUnit\Framework\TestCase;
 use SnakesLadders\Board;
-
+use SnakesLadders\Snake;
+use SnakesLadders\EntityFactory;
+use SnakesLadders\EntityType;
 
 class BoardTest extends TestCase {
 
@@ -48,4 +50,25 @@ class BoardTest extends TestCase {
         
         $this->assertContainsOnlyInstancesOf('\SnakesLadders\Tile', $board->get()[0]);
     }
+
+    public function snakes() 
+    {
+        return [
+            [[new Snake(3,0), new Snake(2,2)], 3, 0],
+            [[new Snake(3,0), new Snake(2,2)], 2, 2]
+        ];
+    }
+
+    // https://engagor.github.io/blog/2017/08/01/tips-for-better-phpunit-tests/
+    
+    /**
+     * @dataProvider snakes
+     */
+    // public function test_board_places_snake($snakes, $row, $col)
+    // {
+    //     $board = new Board(5,5);
+    //     $board->place($snakes);
+
+    //     $this->assertInstanceOf('SnakesLadders\Snake', $board->getTile($row, $col)->getEntity());
+    // }
 }
