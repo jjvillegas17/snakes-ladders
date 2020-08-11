@@ -8,7 +8,8 @@ use SnakesLadders\Tiles;
 
 class EntityFactory {
 	protected static $entities = [
-        'snake' => Snake::class
+        'snake' => Snake::class,
+        'player' => Player::class
     ];
 
     // public static function create($entity, $num, $board)
@@ -28,17 +29,17 @@ class EntityFactory {
 
     public static function createWithTiles($entity, $coordinates) 
     {   
-        self::checkTilesAdjacency($coordinates);
-        return new self::$entities[$entity]($tiles->get());
+        // self::checkTilesAdjacency($coordinates);
+        return new self::$entities[$entity]($coordinates);
     }
 
-    private function checkTilesAdjacency($coordinates)
-    {
-        $tiles = new Tiles();
-        foreach($coordinates as $coordinate) {
-            $tiles->add(new Tile($coordinate[0], $coordinate[1]));
-        }
+    // private function checkTilesAdjacency($coordinates)
+    // {
+    //     $tiles = new Tiles();
+    //     foreach($coordinates as $coordinate) {
+    //         $tiles->add(new Tile($coordinate[0], $coordinate[1]));
+    //     }
 
-        $tiles->checkAdjacency();
-    }
+    //     $tiles->checkAdjacency();
+    // }
 }

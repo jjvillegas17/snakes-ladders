@@ -1,0 +1,59 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+h2 {
+	text-align: center;
+	margin: 20px;
+}
+
+.board {
+	display: grid;
+	grid-template-columns: repeat(5, 150px);
+	grid-template-rows: repeat(5, 150px);
+	justify-content: center;
+}
+
+.cell {
+	position: relative;
+}
+
+.cell:nth-child(even) {
+	background-color: green
+}
+
+.cell:nth-child(odd) {
+	background-color: grey;
+}
+
+.player {
+	width: 75%;
+	margin: 0 auto;
+}
+
+.line {
+	overflow: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.controls {
+	display: flex;
+	align-items: center;
+  	justify-content: center;
+	margin-top: 10px;
+}
+
+.primary-button {
+	height: 50px;
+	width: 150px;
+}
+
+.turn {
+	position: relative;
+	right: 30px;
+	font-size: 20px;
+}

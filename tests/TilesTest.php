@@ -10,8 +10,7 @@ class TilesTest extends TestCase {
     public function tiles()
     {
         return [
-            [new Tile(1,1), new Tile(2,1), new Tile(3,4)],
-            [new Tile(1,0), new Tile(1,2), new Tile(2,3)]
+            [[new Tile(0,1), new Tile(1,2), new Tile(2,2)]],
         ];
     }
 
@@ -26,3 +25,15 @@ class TilesTest extends TestCase {
         $tilesObj->checkAdjacency();
     }
 }
+
+/*
+
+  0 1 2 3 4 5
+0 
+1 x
+2   x
+3         x
+4
+5
+
+*/

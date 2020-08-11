@@ -12,45 +12,40 @@
 // Spawnable: player,snake,ladders
 
 
-$board = new Board(10, 10);
-$snakes = $spawnableFactory::create('snakes');
-$ladders = $spawnableFactory::create('ladders');
-$board->place($snakes)
-	  ->place($ladders);
-$board->make('snakes')->count(2);
-$board->place(Spawnable $players);
-$board->place(Spawnable $snakes);
-$board->place(Spawnable $ladders);
+// $board = new Board(10, 10);
+// $snakes = $spawnableFactory::create('snakes');
+// $ladders = $spawnableFactory::create('ladders');
+// $board->place($snakes)
+// 	  ->place($ladders);
+// $board->make('snakes')->count(2);
+// $board->place(Spawnable $players);
+// $board->place(Spawnable $snakes);
+// $board->place(Spawnable $ladders);
 
-// board should have tiles. a tile will be having a row, col, object placed into it
-
-
-
-
-// currently can do
-$board = new Board(5,5);
-$game = new Game($board, 3);
+// // currently can do
+// $board = new Board(5,5);
+// $game = new Game($board, 3);
 
 
-$snake->place($board);
-$snake = new Snake();
-$board->place($snake);
+// $snake->place($board);
+// $snake = new Snake();
+// $board->place($snake);
 /**
 * entityFactory is still used for creating snakes with random tiles such 
 * that creating snakes will be easy for the client code - 
 * EntityFactory::create('snake', 5);
 */ 
-$snake = EntityFactory::create('snake', [[0,0],[1,0],[2,0]]);
-$board->place(Spawnable $snakes);
-$board->place(Spawnable $ladders);
-$game->start();
+// $snake = EntityFactory::create('snake', [[0,0],[1,0],[2,0]]);
+// $board->place(Spawnable $snakes);
+// $board->place(Spawnable $ladders);
+// $game->start();
 
-while (!$game->isFinish()) {
-	/** var player */
-	$player = $game->getPlayerTurn();
-	$moves = Dice::roll();
-	$player->move($moves);
-}
+// while (!$game->isFinish()) {
+// 	/** var player */
+// 	$player = $game->getPlayerTurn();
+// 	$moves = Dice::roll();
+// 	$player->move($moves);
+// }
 
 /**
  * TODO:
@@ -64,10 +59,4 @@ while (!$game->isFinish()) {
  * 5. how to test this test_snake_throws_exception_when_created_with_non_adjacent_tiles
  */
 
- /**
-  * create the test for entityfactory
-  */
-// make checkSnakes() public method so that if gagamitin ni client, pwede
-*place snakes on board
-*fluent api to do it
-$snakes->create();
+

@@ -49,4 +49,22 @@ class TileTest extends TestCase {
     {
         $this->assertFalse($tile->isAdjacentWith($tileTobeCompared));
     }
+
+
+    public function tiles() 
+    {
+        return [
+            [new Tile(0,1),[new Tile(0,1), new Tile(1,2), new Tile(2,2)]],
+            [new Tile(1,2),[new Tile(0,1), new Tile(1,2), new Tile(2,2)]],
+            [new Tile(2,2),[new Tile(0,1), new Tile(1,2), new Tile(2,2)]],
+        ];
+    }
+
+    /**
+     * @dataProvider tiles
+     */
+    public function test_tile_has_adjacent_with($tile, $tilesToBeCompared) 
+    {
+        $this->assertTrue($tile->hasAdjacentWith($tilesToBeCompared));
+    }
 }

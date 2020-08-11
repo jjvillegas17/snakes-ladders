@@ -5,12 +5,23 @@ namespace SnakesLadders;
 class Tile {
     protected $row;
     protected $col;
-    protected $entity;
+    protected $entity = [];
+    protected $players = [];
 
     public function __construct($row, $col)
     {
         $this->row = $row;
         $this->col = $col;
+    }
+
+    public function placePlayer($player)
+    {
+        $this->players[] = $player;
+    }
+
+    public function getPlayers()
+    {
+        return $this->players;
     }
 
     public function setEntity($entity)
@@ -31,6 +42,18 @@ class Tile {
             }
         }
     }
+
+    // public function isAllAdjacentWith($tilesToBeComparedTo)
+    // {
+    //     foreach ($tilesToBeComparedTo as $tile) {
+    //         if () {
+
+    //         }
+    //     }
+
+    //     return true;
+
+    // }
 
     public function isAdjacentWith($tile) 
     {

@@ -6,6 +6,10 @@ use SnakesLadders\Tiles;
 use SnakesLadders\Tile;
 
 class Board {
+	/**
+	 * SnakesLadders\Tiles
+	 * @var array
+	 */
 	protected $tiles = [];
 	protected $maxRow;
 	protected $maxCol;
@@ -37,6 +41,11 @@ class Board {
 		}
 	}
 
+	public function placeAtStart(Player $player)
+	{
+		$this->tiles[0][0]->placePlayer($player);
+	}
+
 	public function get()
 	{
 		return $this->tiles;
@@ -56,4 +65,24 @@ class Board {
 	{
 		return $this->maxCol;
 	}
+
+	public function arrangeTilesToDom() 
+	{
+		$arrangedTiles = [];
+
+		$index = $this->maxRow * $this->maxCol;
+		
+		for ($i=0; $i < $this->maxRow * $this->maxCol; $i++) {
+		}	
+	}
 }
+
+/**
+ * 
+ *
+ *
+ * 11 12 13 14 15
+ * 10 9 8 7 6
+ * 1 2 3 4 5
+ * 
+ */
